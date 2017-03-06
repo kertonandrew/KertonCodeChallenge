@@ -55,6 +55,8 @@ public class Robot {
 			else
 				return false;
 			break;
+
+			default: break;
 		}
 		return true;
 	}
@@ -72,7 +74,7 @@ public class Robot {
 	}
 
 	public String report() {
-		return x + "," + y + "," + this.direction();
+		return (x!=-1) ? (x + "," + y + "," + this.direction()) : "";
 	}
 
 	private String direction() {

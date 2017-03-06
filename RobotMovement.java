@@ -10,29 +10,58 @@ public class RobotMovement {
 
 		Robot robot = new Robot(5);
 		Scanner in = new Scanner(System.in);
-		String command = "";
+		
+		System.out.print("Please enter a command: ");
+		String command = in.nextLine();
 		String[] commandArgs;
 
-		while(!command.equalsIgnoreCase("q") || !command.equalsIgnoreCase("quit")) {
-			System.out.print("Please enter a command: ");
-			command = in.nextLine();
+		while(!command.equalsIgnoreCase("q") && !command.equalsIgnoreCase("quit")) {
 			commandArgs = command.toUpperCase().split(" |,");
 
 			switch(commandArgs[0].toUpperCase()){
 				case "PLACE":
-				break;
-				case "MOVE": 	
-				break;
-				case "LEFT": robot.left();
-				break;
-				case "RIGHT": robot.right();		
-				break;
-				case "REPORT": robot.report();
-				break;
-				default : System.out.println("Invalid input! Try PLACE X,Y,F | MOVE | LEFT | RIGHT | REPORT."); break;
+					int f = -1;
+					switch(commandArgs[3]) {
+						case "NORTH": f = 0;
+						break;
+						case "EAST": f = 1;
+						break;
+						case "SOUTH": f = 2;
+						break;
+						case "WEST": f = 3;
+						break;
+						default: System.out.println("Invalid input! Try PLACE X,Y,F"); break;
+					}
+					robot.place(Integer.parseInt(commandArgs[1]), Integer.parseInt(commandArgs[2]), f);
+					break;
+
+				case "MOVE": 
+					if(!robot.move()) {
+						System.out.println("Invalid move!");
+					};
+					break;
+
+				case "LEFT": 
+					robot.left();
+					break;
+
+				case "RIGHT": 
+					robot.right();		
+					break;
+
+				case "REPORT": 
+					String output = robot.report();
+					if(!output.equals(""))
+						System.out.println("OUTPUT: " + robot.report());
+					break;
+
+				default: 
+					System.out.println("Invalid input! Try PLACE <int>,<int>,<north|east|south|west> | MOVE | LEFT | RIGHT | REPORT."); break;
 			}
 
-			System.out.println("You entered: " + commandArgs[0]);
+			System.out.print("Please enter a command: ");
+			command = in.nextLine();
+
 		}
 		in.close();
 	}
