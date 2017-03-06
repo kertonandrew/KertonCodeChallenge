@@ -16,18 +16,18 @@ public class RobotMovement {
 		while(!command.equalsIgnoreCase("q") || !command.equalsIgnoreCase("quit")) {
 			System.out.print("Please enter a command: ");
 			command = in.nextLine();
-			commandArgs = command.split("\\s+");
+			commandArgs = command.toUpperCase().split(" |,");
 
 			switch(commandArgs[0].toUpperCase()){
-				case "PLACE": 
+				case "PLACE":
 				break;
 				case "MOVE": 	
 				break;
-				case "LEFT": 
+				case "LEFT": robot.left();
 				break;
-				case "RIGHT":
+				case "RIGHT": robot.right();		
 				break;
-				case "REPORT": 
+				case "REPORT": robot.report();
 				break;
 				default : System.out.println("Invalid input! Try PLACE X,Y,F | MOVE | LEFT | RIGHT | REPORT."); break;
 			}
