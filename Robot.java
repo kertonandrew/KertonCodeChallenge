@@ -9,31 +9,47 @@ public class Robot {
 	private int f;
 	private int tableWidth;	
 
-	public Robot(int x, int y, int f, int tableWidth) {
-		this.x = x;
-		this.y = y;
-		this.f = f;
+	public Robot(int tableWidth) {
+		this.x = -1;
+		this.y = -1;
+		this.f = -1;
+
 		this.tableWidth = tableWidth;
+	}
+
+	public boolean place(int x, int y, int f) {
+		return true;
+	}
+
+	public boolean move(){
+		return true;
+	}
+
+	public void left() {
+		
 	}
 
 	public void right() {
 
 	}
 
-	public void left() {
-
+	public String report() {
+		return x + "," + y + "," + this.direction();
 	}
 
-	public void move(){
-
-	}
-
-	public  void place() {
-
-	}
-
-	public String toString() {
-		return "";
+	private String direction() {
+		String dir = "";
+		switch(f) {
+			case 0: dir = "NORTH"; 
+			break;
+			case 1: dir = "EAST"; 
+			break;
+			case 2: dir = "SOUTH"; 
+			break;
+			default: dir = "WEST"; 
+			break;
+		}
+		return dir;
 	}
 
 }
