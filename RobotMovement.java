@@ -30,7 +30,7 @@ public class RobotMovement {
 						break;
 						case "WEST": f = 3;
 						break;
-						default: System.out.println("Invalid input! Try PLACE X,Y,F"); break;
+						default: System.out.println("Invalid input! Try PLACE <int>,<int>,<north|east|south|west> | MOVE | LEFT | RIGHT | REPORT."); break;
 					}
 					robot.place(Integer.parseInt(commandArgs[1]), Integer.parseInt(commandArgs[2]), f);
 					break;
