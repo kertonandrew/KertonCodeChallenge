@@ -13,7 +13,7 @@
 -	After compilation of the program (Refer to "Setup and run"), simply run the program with the file path of the test data file.
 -	The file "test" has been provided so run ```java RobotMovement test``` to execute the tests in the file.
 
-##Ideas
+##Initial thoughts
 
 ### Robot and Table class
 This approach makes more sense from a software perspective. 
