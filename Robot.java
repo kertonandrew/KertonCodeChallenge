@@ -70,10 +70,14 @@ public class Robot {
 	}
 
 	public String report() {
-		return (x!=-1) ? (x + "," + y + "," + this.direction()) : "";
+		return (x!=-1) ? (x + "," + y + "," + this.facingString()) : "";
 	}
 
-	private String direction() {
+	public boolean hasBeenPlaced() {
+		return f != -1;
+	}
+
+	private String facingString() {
 		String dir = "";
 		switch(f) {
 			case 0: dir = "NORTH"; 
