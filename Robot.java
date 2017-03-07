@@ -29,26 +29,26 @@ public class Robot {
 	public boolean move(){
 		switch(f) {
 			case 0: 
-				if(x<5)
-					++x;
-				else
-					return false;
-				break;
-			case 1: 
 				if(y<5)
 					++y;
 				else
 					return false;
 				break;
+			case 1: 
+				if(x<5)
+					++x;
+				else
+					return false;
+				break;
 			case 2: 
-				if(x>0)
-					--x;
+				if(y>0)
+					--y;
 				else
 					return false;
 				break;
 			case 3: 
-				if(y>0)
-					--y;
+				if(x>0)
+					--x;
 				else
 					return false;
 				break;
